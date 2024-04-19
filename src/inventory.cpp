@@ -13,12 +13,14 @@ void Inventory::addProduct(int productId, int quantity) {
     }
 }
 
-void Inventory::removeProduct(int productId, int quantity) {
+bool Inventory::removeProduct(int productId, int quantity) {
     auto it = stock.find(productId);
-    if (it != stock.end() && it->second >= quantity) {
+    if (it != stock.end()) {
         it->second -= quantity;
         catalog->updateStock(productId, -quantity);
+        return true;
     }
+    return false;
 }
 
 int Inventory::getProductQuantity(int productId) const {

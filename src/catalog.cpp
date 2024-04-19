@@ -6,10 +6,11 @@ Catalog::~Catalog() {
     }
 }
 
-void Catalog::createProduct(const std::string& name, double price, const std::string& description, int supplierId) {
+int Catalog::createProduct(const std::string& name, double price, const std::string& description, int supplierId) {
     Product* newProduct = new Product(name, price, description, supplierId);
     products[newProduct->id] = newProduct;
     totalStock[newProduct->id] = 0; 
+    return newProduct->id;
 }
 
 void Catalog::registerInventory(Inventory* inventory) {

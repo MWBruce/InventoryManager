@@ -3,6 +3,7 @@
 
 #include "command.h"
 #include "../catalog.h"
+#include "command_response.h"
 
 class UpdateProductNameCommand : public Command {
 private:
@@ -12,7 +13,7 @@ private:
 
 public:
     UpdateProductNameCommand(Catalog* catalog, int productId, const std::string& newName);
-    void execute() override;
+    CommandResponse execute() override;
 };
 
 #endif 

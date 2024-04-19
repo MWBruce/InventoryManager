@@ -3,6 +3,7 @@
 
 #include "command.h"
 #include "../inventory.h"
+#include "command_response.h"
 
 class CheckStoreProductQuantityCommand : public Command {
 private:
@@ -11,7 +12,7 @@ private:
 
 public:
     CheckStoreProductQuantityCommand(Inventory* inventory, int productId);
-    void execute() override;
+    CommandResponse execute() override;
 };
 
 #endif

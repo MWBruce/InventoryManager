@@ -5,6 +5,7 @@
 #include "commands/invoker.h"
 #include "commands/command_factory.h"
 #include "commands/command_types.h"
+#include "commands/command_response.h"
 #include <memory>
 
 class Location {
@@ -19,8 +20,7 @@ public:
     Location(Catalog* catalog);
     ~Location() {}
 
-    void executeCommand(CommandType type, const std::string& name = "", double price = 0.0, const std::string& description = "", int supplierId = 0, int productId = 0);
-    void updateInventory();
+    CommandResponse executeCommand(CommandType type, const std::string& name = "", double price = 0.0, const std::string& description = "", int supplierId = 0, int productId = 0);
     int getId() const;
 };
 

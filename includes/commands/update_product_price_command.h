@@ -3,6 +3,7 @@
 
 #include "command.h"
 #include "../catalog.h"
+#include "command_response.h"
 
 class UpdateProductPriceCommand : public Command {
 private:
@@ -12,7 +13,7 @@ private:
 
 public:
     UpdateProductPriceCommand(Catalog* catalog, int productId, double newPrice);
-    void execute() override;
+    CommandResponse execute() override;
 };
 
 #endif

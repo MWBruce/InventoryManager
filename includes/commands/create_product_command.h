@@ -3,6 +3,7 @@
 
 #include "command.h"
 #include "../catalog.h"
+#include "command_response.h"
 #include <string>
 
 class CreateProductCommand : public Command {
@@ -15,7 +16,7 @@ private:
 
 public:
     CreateProductCommand(Catalog* catalog, const std::string& name, double price, const std::string& description, int supplierId);
-    void execute() override;
+    CommandResponse execute() override;
 };
 
 #endif 

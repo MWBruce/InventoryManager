@@ -3,6 +3,7 @@
 
 #include "command.h"
 #include "../catalog.h"
+#include "command_response.h"
 
 class GetProductPriceCommand : public Command {
 private:
@@ -11,7 +12,7 @@ private:
 
 public:
     GetProductPriceCommand(Catalog* catalog, int productId);
-    void execute() override;
+    CommandResponse execute() override;
 };
 
 #endif

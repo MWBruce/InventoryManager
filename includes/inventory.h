@@ -14,7 +14,7 @@ private:
 public:
     Inventory(Catalog* cat);
     void addProduct(int productId, int quantity);
-    void removeProduct(int productId, int quantity);
+    bool removeProduct(int productId, int quantity);
     int getProductQuantity(int productId) const;
     int getId() const;
     

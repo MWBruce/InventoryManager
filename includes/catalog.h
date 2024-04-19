@@ -14,7 +14,7 @@ private:
 
 public:
     ~Catalog();
-    void createProduct(const std::string& name, double price, const std::string& description, int supplierId);
+    int createProduct(const std::string& name, double price, const std::string& description, int supplierId);
     void registerInventory(Inventory* inventory);
     int getTotalStock(int productId) const;
     void updateStock(int productId, int amount);

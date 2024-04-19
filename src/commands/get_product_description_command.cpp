@@ -1,9 +1,10 @@
 #include "../../includes/commands/get_product_description_command.h"
-#include <iostream>
+#include "../../includes/commands/command_response.h"
+
+CommandResponse GetProductDescriptionCommand::execute() {
+    std::string description = catalog->getProductDescription(productId);
+    return CommandResponse(true, "Product description retrieved", description);
+}
 
 GetProductDescriptionCommand::GetProductDescriptionCommand(Catalog* catalog, int productId)
     : catalog(catalog), productId(productId) {}
-
-void GetProductDescriptionCommand::execute() {
-    std::cout << "Product Description: " << catalog->getProductDescription(productId) << std::endl;
-}

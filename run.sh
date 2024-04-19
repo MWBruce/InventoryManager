@@ -24,6 +24,7 @@ src/commands/get_product_description_command.cpp \
 src/commands/get_product_supplier_id_command.cpp \
 src/commands/command_factory.cpp \
 src/commands/invoker.cpp \
+src/commands/command_response.cpp \
 main.cpp"
 
 g++ -o $EXECUTABLE $SOURCES -Isrc -Iincludes -Isrc/commands -Iincludes/commands
