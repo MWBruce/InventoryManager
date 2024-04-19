@@ -5,9 +5,6 @@ enum CommandType {
     CreateProduct,
     DeleteProduct,
     CheckStoreProductQuantity,
-    CheckAllStoresProductQuantity,
     UpdateProductName,
-    RequestGoodsFromSupplier,
-    ProcessRefund
 };
 #endif
