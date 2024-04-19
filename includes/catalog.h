@@ -21,6 +21,14 @@ public:
     bool productExists(int productId) const;
     void displayProducts() const;
     void updateProductName(int productId, const std::string& newName);
+    void updateProductPrice(int productId, const float price);
+    void updateProductDescription(int productId, const std::string& desc);
+    void updateSupplierId(int productId, const int newId);
+    std::string getProductName(int productId);
+    double getProductPrice(int productId);
+    std::string getProductDescription(int productId);
+    int getProductSupplierId(int productId);
+
 };
 
 #endif 

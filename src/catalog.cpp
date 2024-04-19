@@ -53,3 +53,55 @@ void Catalog::updateProductName(int productId, const std::string& newName) {
     }
 }
 
+void Catalog::updateProductPrice(int productId, const float price){
+    auto it = products.find(productId);
+    if (it != products.end() && it->second != nullptr) {
+        it->second->setPrice(price);
+    }
+}
+
+void Catalog::updateProductDescription(int productId, const std::string& desc) {
+    auto it = products.find(productId);
+    if (it != products.end() && it->second != nullptr) {
+        it->second->setDescription(desc);
+    }
+}
+
+void Catalog::updateSupplierId(int productId, const int newId){
+    auto it = products.find(productId);
+    if (it != products.end() && it->second != nullptr) {
+        it->second->setSupplierId(newId);
+    }
+}
+
+std::string Catalog::getProductName(int productId){
+    auto it = products.find(productId);
+    if (it != products.end() && it->second != nullptr) {
+        return it->second->getName();
+    }
+    return "";
+}
+
+double Catalog::getProductPrice(int productId){
+    auto it = products.find(productId);
+    if (it != products.end() && it->second != nullptr) {
+        return it->second->getPrice();
+    }
+    return -1;
+}
+
+std::string Catalog::getProductDescription(int productId){
+    auto it = products.find(productId);
+    if (it != products.end() && it->second != nullptr) {
+        return it->second->getDescription();
+    }
+    return "";
+}
+
+int Catalog::getProductSupplierId(int productId) {
+    auto it = products.find(productId);
+    if (it != products.end() && it->second != nullptr) {
+        return it->second->getSupplierId();
+    }
+    return -1;
+}

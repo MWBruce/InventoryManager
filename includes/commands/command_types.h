@@ -6,5 +6,13 @@ enum CommandType {
     DeleteProduct,
     CheckStoreProductQuantity,
     UpdateProductName,
+    UpdateProductPrice,
+    UpdateProductDescription,
+    UpdateProductSupplierId,
+    GetProductName,
+    GetProductPrice,
+    GetProductDescription,
+    GetProductSupplierId
 };
+
 #endif
