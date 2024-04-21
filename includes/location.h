@@ -20,7 +20,7 @@ public:
     Location(Catalog* catalog);
     ~Location() {}
 
-    CommandResponse executeCommand(CommandType type, const CommandQuery& query);
+    CommandResponse executeCommand(const CommandQuery& query);
     int getId() const;
 };
 

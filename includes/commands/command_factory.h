@@ -3,7 +3,7 @@
 
 #include "../catalog.h"
 #include "../inventory.h"
-#include "command_query.h"
+#include "../queries/base/command_query.h"
 #include "base/command.h"
 #include "command_types.h"
 #include "concrete/create_product_command.h"
@@ -22,7 +22,7 @@
 
 class CommandFactory {
 public:
-    static std::unique_ptr<Command> createCommand(CommandType type, Catalog* catalog, Inventory* inventory, const CommandQuery& query);
+    static std::unique_ptr<Command> createCommand(const CommandQuery& query, Catalog* catalog, Inventory* inventory);
 };
 
 #endif

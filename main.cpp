@@ -3,8 +3,14 @@
 
 #include "includes/catalog.h"
 #include "includes/commands/command_types.h"
-#include "includes/commands/command_query.h"
-#include "includes/commands/command_query_factory.h"
+#include "../includes/queries/check_store_product_quantity_query.h"
+#include "../includes/queries/get_product_description_query.h"
+#include "../includes/queries/create_product_query.h"
+#include "../includes/queries/update_product_description_query.h"
+#include "../includes/queries/update_product_name_query.h"
+#include "../includes/queries/update_product_price_query.h"
+#include "../includes/queries/update_product_supplier_id_query.h"
+#include "includes/commands/command_factory.h"
 #include "includes/location.h"
 
 int main() {
@@ -12,52 +18,51 @@ int main() {
     Location warehouse(&mainCatalog);
 
     auto printResponse = [](const CommandResponse& response) {
-        std::cout << (response.success ? "Success: " : "Fail: ") << response.message << std::endl;
+        std::cout << (response.success ? "Success: " : "Fail: ") << response.message;
+        if (response.data.has_value()) {
+            const std::type_info& type = response.data.type();
+            if (type == typeid(int)) {
+                std::cout << ": " << std::any_cast<int>(response.data);
+            } else if (type == typeid(std::string)) {
+                std::cout << ": " << std::any_cast<std::string>(response.data);
+            } else {
+                std::cout << ": Unhandled data type";
+            }
+        }
+        std::cout << std::endl;
     };
 
-    CommandQuery createQuery = CommandQueryFactory::createQuery(CreateProduct, {}, 1, 1200.00, "Product A", "Description of Product A");
-    printResponse(warehouse.executeCommand(CreateProduct, createQuery));
+    std::unique_ptr<CommandQuery> createQuery = std::make_unique<CreateProductQuery>("Product A", 1200.00, "Description of Product A", 1);
+    printResponse(warehouse.executeCommand(*createQuery));
 
-    int productId = 1; 
+    int productId = 1;
 
-    CommandQuery updateNameQuery = CommandQueryFactory::createQuery(UpdateProductName, productId, {}, {}, "Product A Updated");
-    printResponse(warehouse.executeCommand(UpdateProductName, updateNameQuery));
+    std::unique_ptr<CommandQuery> getDescriptionQuery = std::make_unique<GetProductDescriptionQuery>(productId);
+    printResponse(warehouse.executeCommand(*getDescriptionQuery));
 
-    CommandQuery updatePriceQuery = CommandQueryFactory::createQuery(UpdateProductPrice, productId, {}, 1500.00);
-    printResponse(warehouse.executeCommand(UpdateProductPrice, updatePriceQuery));
+    std::unique_ptr<CommandQuery> checkQuantityQuery = std::make_unique<CheckStoreProductQuantityQuery>(productId);
+    printResponse(warehouse.executeCommand(*checkQuantityQuery));
 
-    CommandQuery updateDescriptionQuery = CommandQueryFactory::createQuery(UpdateProductDescription, productId, {}, {}, {}, "Updated Description of Product A");
-    printResponse(warehouse.executeCommand(UpdateProductDescription, updateDescriptionQuery));
+    std::unique_ptr<CommandQuery> getNameQuery = std::make_unique<GetProductNameQuery>(productId);
+    printResponse(warehouse.executeCommand(*getNameQuery));
 
-    CommandQuery updateSupplierIdQuery = CommandQueryFactory::createQuery(UpdateProductSupplierId, productId, 2);
-    printResponse(warehouse.executeCommand(UpdateProductSupplierId, updateSupplierIdQuery));
+    std::unique_ptr<CommandQuery> getPriceQuery = std::make_unique<GetProductPriceQuery>(productId);
+    printResponse(warehouse.executeCommand(*getPriceQuery));
 
-    CommandQuery getNameQuery = CommandQueryFactory::createQuery(GetProductName, productId);
-    printResponse(warehouse.executeCommand(GetProductName, getNameQuery));
+    std::unique_ptr<CommandQuery> getSupplierIdQuery = std::make_unique<GetProductSupplierIdQuery>(productId);
+    printResponse(warehouse.executeCommand(*getSupplierIdQuery));
 
-    CommandQuery getPriceQuery = CommandQueryFactory::createQuery(GetProductPrice, productId);
-    printResponse(warehouse.executeCommand(GetProductPrice, getPriceQuery));
+    std::unique_ptr<CommandQuery> updateDescriptionQuery = std::make_unique<UpdateProductDescriptionQuery>(productId, "New description for Product A");
+    printResponse(warehouse.executeCommand(*updateDescriptionQuery));
 
-    CommandQuery getDescriptionQuery = CommandQueryFactory::createQuery(GetProductDescription, productId);
-    printResponse(warehouse.executeCommand(GetProductDescription, getDescriptionQuery));
+    std::unique_ptr<CommandQuery> updateNameQuery = std::make_unique<UpdateProductNameQuery>(productId, "New Product Name A");
+    printResponse(warehouse.executeCommand(*updateNameQuery));
 
-    CommandQuery getSupplierIdQuery = CommandQueryFactory::createQuery(GetProductSupplierId, productId);
-    printResponse(warehouse.executeCommand(GetProductSupplierId, getSupplierIdQuery));
+    std::unique_ptr<CommandQuery> updatePriceQuery = std::make_unique<UpdateProductPriceQuery>(productId, 1300.00);
+    printResponse(warehouse.executeCommand(*updatePriceQuery));
 
-    CommandQuery checkQuantityQuery = CommandQueryFactory::createQuery(CheckStoreProductQuantity, productId);
-    printResponse(warehouse.executeCommand(CheckStoreProductQuantity, checkQuantityQuery));
+    std::unique_ptr<CommandQuery> updateSupplierIdQuery = std::make_unique<UpdateProductSupplierIdQuery>(productId, 2);
+    printResponse(warehouse.executeCommand(*updateSupplierIdQuery));
 
     return 0;
 }
-    // Commands I need to have the store being able to do:
-        // Update all details for any product (Done)
-        // Get for product information (Done)
-        // Create New Product (Done)
-        // Check product count for any id (Done)
-        // Handle Refunds
-        // record sales
-        // Requests more of a stock to stock requests object managed by catalog which will order from the specified suppliers and deliver
-        // Handles payments(mixed payments allowed)
-        // Searches for stock based on search strategy
-        // Make receipt for orders
-        // Manage Sales History

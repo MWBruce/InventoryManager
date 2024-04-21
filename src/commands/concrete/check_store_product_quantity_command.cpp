@@ -5,7 +5,3 @@ CommandResponse CheckStoreProductQuantityCommand::execute() {
     int quantity = inventory->getProductQuantity(productId);
     return CommandResponse(true, "Quantity retrieved", quantity);
 }
-
-CheckStoreProductQuantityCommand::CheckStoreProductQuantityCommand(Inventory* inventory, int productId) 
-    : inventory(inventory), productId(productId) {}
-

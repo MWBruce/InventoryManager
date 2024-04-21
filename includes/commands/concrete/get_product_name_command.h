@@ -2,8 +2,9 @@
 #define GET_PRODUCT_NAME_COMMAND_H
 
 #include "../base/command.h"
-#include "../catalog.h"
 #include "command_response.h"
+#include "../catalog.h"
+#include "../../queries/get_product_name_query.h"
 
 class GetProductNameCommand : public Command {
 private:
@@ -11,7 +12,8 @@ private:
     int productId;
 
 public:
-    GetProductNameCommand(Catalog* catalog, int productId);
+    GetProductNameCommand(Catalog* catalog, const GetProductNameQuery& query);
+
     CommandResponse execute() override;
 };
 

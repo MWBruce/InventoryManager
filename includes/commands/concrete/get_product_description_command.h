@@ -4,6 +4,7 @@
 #include "../base/command.h"
 #include "../catalog.h"
 #include "command_response.h"
+#include "../../queries/get_product_description_query.h"
 
 class GetProductDescriptionCommand : public Command {
 private:
@@ -11,7 +12,8 @@ private:
     int productId;
 
 public:
-    GetProductDescriptionCommand(Catalog* catalog, int productId);
+    GetProductDescriptionCommand(Catalog* catalog, const GetProductDescriptionQuery& query);
+
     CommandResponse execute() override;
 };
 

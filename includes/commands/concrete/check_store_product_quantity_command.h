@@ -4,6 +4,7 @@
 #include "../base/command.h"
 #include "../inventory.h"
 #include "command_response.h"
+#include "../../queries/check_store_product_quantity_query.h"
 
 class CheckStoreProductQuantityCommand : public Command {
 private:
@@ -11,7 +12,9 @@ private:
     int productId;
 
 public:
-    CheckStoreProductQuantityCommand(Inventory* inventory, int productId);
+    CheckStoreProductQuantityCommand(Inventory* inventory, const CheckStoreProductQuantityQuery& query)
+        : inventory(inventory), productId(query.getProductId()) {}
+
     CommandResponse execute() override;
 };
 

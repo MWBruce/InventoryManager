@@ -4,6 +4,7 @@
 #include "../base/command.h"
 #include "../catalog.h"
 #include "command_response.h"
+#include "../../queries/update_product_supplier_id_query.h"
 
 class UpdateProductSupplierIdCommand : public Command {
 private:
@@ -12,7 +13,7 @@ private:
     int newSupplierId;
 
 public:
-    UpdateProductSupplierIdCommand(Catalog* catalog, int productId, int newSupplierId);
+    UpdateProductSupplierIdCommand(Catalog* catalog, const UpdateProductSupplierIdQuery& query);
     CommandResponse execute() override;
 };
 

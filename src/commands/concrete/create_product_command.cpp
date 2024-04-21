@@ -1,10 +1,15 @@
 #include "../../includes/commands/concrete/create_product_command.h"
 #include "../../includes/commands/command_response.h"
 
+CreateProductCommand::CreateProductCommand(Catalog* catalog, const CreateProductQuery& query)
+    : catalog(catalog), name(query.getName()), price(query.getPrice()), description(query.getDescription()), supplierId(query.getSupplierId()) {}
+
+
 CommandResponse CreateProductCommand::execute() {
     int newProductId = catalog->createProduct(name, price, description, supplierId);
-    return newProductId != -1 ? CommandResponse(true, "Product created", newProductId) : CommandResponse(false, "Failed to create product");
+    if (newProductId != -1) {
+        return CommandResponse(true, "Product created successfully", newProductId);
+    } else {
+        return CommandResponse(false, "Failed to create product");
+    }
 }
-
-CreateProductCommand::CreateProductCommand(Catalog* catalog, const std::string& name, double price, const std::string& description, int supplierId)
-    : catalog(catalog), name(name), price(price), description(description), supplierId(supplierId) {}

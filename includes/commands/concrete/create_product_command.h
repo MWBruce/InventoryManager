@@ -4,6 +4,7 @@
 #include "../base/command.h"
 #include "../catalog.h"
 #include "command_response.h"
+#include "../../queries/create_product_query.h"
 #include <string>
 
 class CreateProductCommand : public Command {
@@ -15,8 +16,8 @@ private:
     int supplierId;
 
 public:
-    CreateProductCommand(Catalog* catalog, const std::string& name, double price, const std::string& description, int supplierId);
+    CreateProductCommand(Catalog* catalog, const CreateProductQuery& query);
     CommandResponse execute() override;
 };
 
-#endif 
+#endif

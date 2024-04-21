@@ -2,8 +2,9 @@
 #define GET_PRODUCT_SUPPLIER_ID_COMMAND_H
 
 #include "../base/command.h"
-#include "../catalog.h"
 #include "command_response.h"
+#include "../../queries/get_product_supplier_id_query.h"
+#include "../catalog.h"
 
 class GetProductSupplierIdCommand : public Command {
 private:
@@ -11,7 +12,8 @@ private:
     int productId;
 
 public:
-    GetProductSupplierIdCommand(Catalog* catalog, int productId);
+    GetProductSupplierIdCommand(Catalog* catalog, const GetProductSupplierIdQuery& query);
+
     CommandResponse execute() override;
 };
 
