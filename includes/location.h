@@ -20,7 +20,7 @@ public:
     Location(Catalog* catalog);
     ~Location() {}
 
-    CommandResponse executeCommand(CommandType type, const std::string& name = "", double price = 0.0, const std::string& description = "", int supplierId = 0, int productId = 0);
+    CommandResponse executeCommand(CommandType type, const CommandQuery& query);
     int getId() const;
 };
 

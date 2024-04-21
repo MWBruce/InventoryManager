@@ -10,9 +10,9 @@ public:
     double price;
     std::string name;
     std::string description;
-    
+
     CommandQuery(int productId = 0, int supplierId = 0, double price = 0.0, 
                  std::string name = "", std::string description = "");
 };
 
-#endif // COMMAND_QUERY_H
+#endif 

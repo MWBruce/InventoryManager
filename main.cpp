@@ -15,17 +15,37 @@ int main() {
         std::cout << (response.success ? "Success: " : "Fail: ") << response.message << std::endl;
     };
 
-    printResponse(warehouse.executeCommand(CreateProduct, "Product A", 1200.00, "Description of Product A", 1, 0));
+    CommandQuery createQuery = CommandQueryFactory::createQuery(CreateProduct, {}, 1, 1200.00, "Product A", "Description of Product A");
+    printResponse(warehouse.executeCommand(CreateProduct, createQuery));
+
     int productId = 1; 
-    printResponse(warehouse.executeCommand(UpdateProductName, "Product A Updated", 0, "", 0, productId));
-    printResponse(warehouse.executeCommand(UpdateProductPrice, "", 1500.00, "", 0, productId));
-    printResponse(warehouse.executeCommand(UpdateProductDescription, "", 0, "Updated Description of Product A", 0, productId));
-    printResponse(warehouse.executeCommand(UpdateProductSupplierId, "", 0, "", 2, productId));
-    printResponse(warehouse.executeCommand(GetProductName, "", 0, "", 0, productId));
-    printResponse(warehouse.executeCommand(GetProductPrice, "", 0, "", 0, productId));
-    printResponse(warehouse.executeCommand(GetProductDescription, "", 0, "", 0, productId));
-    printResponse(warehouse.executeCommand(GetProductSupplierId, "", 0, "", 0, productId));
-    printResponse(warehouse.executeCommand(CheckStoreProductQuantity, "", 0, "", 0, productId));
+
+    CommandQuery updateNameQuery = CommandQueryFactory::createQuery(UpdateProductName, productId, {}, {}, "Product A Updated");
+    printResponse(warehouse.executeCommand(UpdateProductName, updateNameQuery));
+
+    CommandQuery updatePriceQuery = CommandQueryFactory::createQuery(UpdateProductPrice, productId, {}, 1500.00);
+    printResponse(warehouse.executeCommand(UpdateProductPrice, updatePriceQuery));
+
+    CommandQuery updateDescriptionQuery = CommandQueryFactory::createQuery(UpdateProductDescription, productId, {}, {}, {}, "Updated Description of Product A");
+    printResponse(warehouse.executeCommand(UpdateProductDescription, updateDescriptionQuery));
+
+    CommandQuery updateSupplierIdQuery = CommandQueryFactory::createQuery(UpdateProductSupplierId, productId, 2);
+    printResponse(warehouse.executeCommand(UpdateProductSupplierId, updateSupplierIdQuery));
+
+    CommandQuery getNameQuery = CommandQueryFactory::createQuery(GetProductName, productId);
+    printResponse(warehouse.executeCommand(GetProductName, getNameQuery));
+
+    CommandQuery getPriceQuery = CommandQueryFactory::createQuery(GetProductPrice, productId);
+    printResponse(warehouse.executeCommand(GetProductPrice, getPriceQuery));
+
+    CommandQuery getDescriptionQuery = CommandQueryFactory::createQuery(GetProductDescription, productId);
+    printResponse(warehouse.executeCommand(GetProductDescription, getDescriptionQuery));
+
+    CommandQuery getSupplierIdQuery = CommandQueryFactory::createQuery(GetProductSupplierId, productId);
+    printResponse(warehouse.executeCommand(GetProductSupplierId, getSupplierIdQuery));
+
+    CommandQuery checkQuantityQuery = CommandQueryFactory::createQuery(CheckStoreProductQuantity, productId);
+    printResponse(warehouse.executeCommand(CheckStoreProductQuantity, checkQuantityQuery));
 
     return 0;
 }
@@ -33,7 +53,6 @@ int main() {
         // Update all details for any product (Done)
         // Get for product information (Done)
         // Create New Product (Done)
-        // Delete Products For Current Inv (Done)
         // Check product count for any id (Done)
         // Handle Refunds
         // record sales
