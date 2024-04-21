@@ -1,7 +1,7 @@
 #ifndef CREATE_PRODUCT_COMMAND_H
 #define CREATE_PRODUCT_COMMAND_H
 
-#include "command.h"
+#include "../base/command.h"
 #include "../catalog.h"
 #include "command_response.h"
 #include <string>

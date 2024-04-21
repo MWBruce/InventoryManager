@@ -4,8 +4,6 @@ std::unique_ptr<Command> CommandFactory::createCommand(CommandType type, Catalog
     switch (type) {
         case CreateProduct:
             return std::make_unique<CreateProductCommand>(catalog, name, price, description, supplierId);
-        case DeleteProduct:
-            return std::make_unique<DeleteProductCommand>(inventory, productId);
         case CheckStoreProductQuantity:
             return std::make_unique<CheckStoreProductQuantityCommand>(inventory, productId);
         case UpdateProductName:

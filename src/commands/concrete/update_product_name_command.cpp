@@ -1,4 +1,4 @@
-#include "../../includes/commands/update_product_name_command.h"
+#include "../../includes/commands/concrete/update_product_name_command.h"
 #include "../../includes/commands/command_response.h"
 
 CommandResponse UpdateProductNameCommand::execute() {

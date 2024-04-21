@@ -23,7 +23,6 @@ int main() {
     printResponse(warehouse.executeCommand(GetProductPrice, "", 0, "", 0, productId));
     printResponse(warehouse.executeCommand(GetProductDescription, "", 0, "", 0, productId));
     printResponse(warehouse.executeCommand(GetProductSupplierId, "", 0, "", 0, productId));
-    printResponse(warehouse.executeCommand(DeleteProduct, "", 0, "", 0, productId));
     printResponse(warehouse.executeCommand(CheckStoreProductQuantity, "", 0, "", 0, productId));
 
     return 0;
@@ -35,6 +34,7 @@ int main() {
         // Delete Products For Current Inv (Done)
         // Check product count for any id (Done)
         // Handle Refunds
+        // record sales
         // Requests more of a stock to stock requests object managed by catalog which will order from the specified suppliers and deliver
         // Handles payments(mixed payments allowed)
         // Searches for stock based on search strategy

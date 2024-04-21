@@ -1,7 +1,7 @@
 #ifndef UPDATE_PRODUCT_NAME_COMMAND_H
 #define UPDATE_PRODUCT_NAME_COMMAND_H
 
-#include "command.h"
+#include "../base/command.h"
 #include "../catalog.h"
 #include "command_response.h"
 

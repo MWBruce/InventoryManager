@@ -2,7 +2,7 @@
 #define LOCATION_H
 
 #include "inventory.h"
-#include "commands/invoker.h"
+#include "commands/utils/invoker.h"
 #include "commands/command_factory.h"
 #include "commands/command_types.h"
 #include "commands/command_response.h"

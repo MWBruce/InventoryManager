@@ -1,4 +1,4 @@
-#include "../../includes/commands/create_product_command.h"
+#include "../../includes/commands/concrete/create_product_command.h"
 #include "../../includes/commands/command_response.h"
 
 CommandResponse CreateProductCommand::execute() {

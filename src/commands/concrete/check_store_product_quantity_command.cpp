@@ -1,4 +1,4 @@
-#include "../../includes/commands/check_store_product_quantity_command.h"
+#include "../../includes/commands/concrete/check_store_product_quantity_command.h"
 #include "../../includes/commands/command_response.h"
 
 CommandResponse CheckStoreProductQuantityCommand::execute() {

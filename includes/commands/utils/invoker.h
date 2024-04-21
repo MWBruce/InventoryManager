@@ -1,7 +1,7 @@
 #ifndef INVOKER_H
 #define INVOKER_H
 
-#include "command.h"
+#include "../base/command.h"
 #include <vector>
 #include <memory>
 

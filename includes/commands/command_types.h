@@ -3,7 +3,6 @@
 
 enum CommandType {
     CreateProduct,
-    DeleteProduct,
     CheckStoreProductQuantity,
     UpdateProductName,
     UpdateProductPrice,

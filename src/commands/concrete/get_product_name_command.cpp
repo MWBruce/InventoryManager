@@ -1,4 +1,4 @@
-#include "../../includes/commands/get_product_name_command.h"
+#include "../../includes/commands/concrete/get_product_name_command.h"
 #include "../../includes/commands/command_response.h"
 
 CommandResponse GetProductNameCommand::execute() {

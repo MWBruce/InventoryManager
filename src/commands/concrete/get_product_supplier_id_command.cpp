@@ -1,4 +1,4 @@
-#include "../../includes/commands/get_product_supplier_id_command.h"
+#include "../../includes/commands/concrete/get_product_supplier_id_command.h"
 #include "../../includes/commands/command_response.h"
 
 CommandResponse GetProductSupplierIdCommand::execute() {

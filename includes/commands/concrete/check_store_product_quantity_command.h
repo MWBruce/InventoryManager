@@ -1,7 +1,7 @@
 #ifndef CHECK_STORE_PRODUCT_QUANTITY_COMMAND_H
 #define CHECK_STORE_PRODUCT_QUANTITY_COMMAND_H
 
-#include "command.h"
+#include "../base/command.h"
 #include "../inventory.h"
 #include "command_response.h"
 
