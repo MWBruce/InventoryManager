@@ -20,17 +20,17 @@ src/commands/concrete/get_product_supplier_id_command.cpp \
 src/commands/command_factory.cpp \
 src/commands/utils/invoker.cpp \
 src/commands/command_response.cpp \
-src/queries/create_product_query.cpp \
-src/queries/get_product_description_query.cpp \
-src/queries/check_store_product_quantity_query.cpp \
-src/queries/get_product_name_query.cpp \
-src/queries/get_product_price_query.cpp \
-src/queries/get_product_supplier_id_query.cpp \
-src/queries/update_product_name_query.cpp \
-src/queries/update_product_price_query.cpp \
-src/queries/update_product_supplier_id_query.cpp \
+src/commands/queries/create_product_query.cpp \
+src/commands/queries/get_product_description_query.cpp \
+src/commands/queries/check_store_product_quantity_query.cpp \
+src/commands/queries/get_product_name_query.cpp \
+src/commands/queries/get_product_price_query.cpp \
+src/commands/queries/get_product_supplier_id_query.cpp \
+src/commands/queries/update_product_name_query.cpp \
+src/commands/queries/update_product_price_query.cpp \
+src/commands/queries/update_product_supplier_id_query.cpp \
 src/commands/concrete/update_product_description_command.cpp \
-src/queries/update_product_description_query.cpp \
+src/commands/queries/update_product_description_query.cpp \
 main.cpp"
 
 

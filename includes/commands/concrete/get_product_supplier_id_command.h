@@ -3,7 +3,7 @@
 
 #include "../base/command.h"
 #include "command_response.h"
-#include "../../queries/get_product_supplier_id_query.h"
+#include "../queries/get_product_supplier_id_query.h"
 #include "../catalog.h"
 
 class GetProductSupplierIdCommand : public Command {

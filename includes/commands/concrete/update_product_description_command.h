@@ -4,7 +4,7 @@
 #include "../base/command.h"
 #include "../catalog.h"
 #include "command_response.h"
-#include "../../queries/update_product_description_query.h"
+#include "../queries/update_product_description_query.h"
 
 class UpdateProductDescriptionCommand : public Command {
 private:

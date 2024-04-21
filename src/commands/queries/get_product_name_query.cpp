@@ -1,4 +1,4 @@
-#include "../../includes/queries/get_product_name_query.h"
+#include "../../includes/commands/queries/get_product_name_query.h"
 
 GetProductNameQuery::GetProductNameQuery(int productId) : productId(productId) {}
 

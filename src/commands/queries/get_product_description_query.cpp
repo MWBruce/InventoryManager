@@ -1,4 +1,4 @@
-#include "../../includes/queries/get_product_description_query.h"
+#include "../../includes/commands/queries/get_product_description_query.h"
 
 
 GetProductDescriptionQuery::GetProductDescriptionQuery(int productId) : productId(productId) {}

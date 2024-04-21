@@ -1,4 +1,4 @@
-#include "../../includes/queries/get_product_supplier_id_query.h"
+#include "../../includes/commands/queries/get_product_supplier_id_query.h"
 
 GetProductSupplierIdQuery::GetProductSupplierIdQuery(int productId) : productId(productId) {}
 

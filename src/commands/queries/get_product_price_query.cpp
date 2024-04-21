@@ -1,4 +1,4 @@
-#include "../../includes/queries/get_product_price_query.h"
+#include "../../includes/commands/queries/get_product_price_query.h"
 
 GetProductPriceQuery::GetProductPriceQuery(int productId) : productId(productId) {}
 

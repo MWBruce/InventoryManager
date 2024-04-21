@@ -1,4 +1,4 @@
-#include "../../includes/queries/update_product_name_query.h"
+#include "../../includes/commands/queries/update_product_name_query.h"
 
 UpdateProductNameQuery::UpdateProductNameQuery(int productId, const std::string& newName)
     : productId(productId), newName(newName) {}

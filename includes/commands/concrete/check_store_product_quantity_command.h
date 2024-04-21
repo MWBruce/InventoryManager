@@ -4,7 +4,7 @@
 #include "../base/command.h"
 #include "../inventory.h"
 #include "command_response.h"
-#include "../../queries/check_store_product_quantity_query.h"
+#include "../queries/check_store_product_quantity_query.h"
 
 class CheckStoreProductQuantityCommand : public Command {
 private:

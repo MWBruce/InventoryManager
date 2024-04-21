@@ -4,7 +4,7 @@
 #include "../base/command.h"
 #include "command_response.h"
 #include "../catalog.h"
-#include "../../queries/get_product_name_query.h"
+#include "../queries/get_product_name_query.h"
 
 class GetProductNameCommand : public Command {
 private:

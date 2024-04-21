@@ -1,7 +1,7 @@
 #ifndef COMMAND_QUERY_H
 #define COMMAND_QUERY_H
 
-#include "command_types.h"
+#include "../../command_types.h"
 #include <string>
 
 class CommandQuery {

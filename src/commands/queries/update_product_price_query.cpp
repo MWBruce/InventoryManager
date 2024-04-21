@@ -1,4 +1,4 @@
-#include "../../includes/queries/update_product_price_query.h"
+#include "../../includes/commands/queries/update_product_price_query.h"
 
 UpdateProductPriceQuery::UpdateProductPriceQuery(int productId, double newPrice)
     : productId(productId), newPrice(newPrice) {}

@@ -1,4 +1,4 @@
-#include "../../includes/queries/update_product_supplier_id_query.h"
+#include "../../includes/commands/queries/update_product_supplier_id_query.h"
 
 UpdateProductSupplierIdQuery::UpdateProductSupplierIdQuery(int productId, int newSupplierId)
     : productId(productId), newSupplierId(newSupplierId) {}

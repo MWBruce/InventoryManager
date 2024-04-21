@@ -3,7 +3,7 @@
 
 #include "../catalog.h"
 #include "../inventory.h"
-#include "../queries/base/command_query.h"
+#include "queries/base/command_query.h"
 #include "base/command.h"
 #include "command_types.h"
 #include "concrete/create_product_command.h"

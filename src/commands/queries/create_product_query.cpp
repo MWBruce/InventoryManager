@@ -1,4 +1,4 @@
-#include "../../includes/queries/create_product_query.h"
+#include "../../includes/commands/queries/create_product_query.h"
 
 CreateProductQuery::CreateProductQuery(const std::string& name, double price, const std::string& description, int supplierId)
     : name(name), price(price), description(description), supplierId(supplierId) {}

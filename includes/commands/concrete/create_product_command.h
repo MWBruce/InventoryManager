@@ -4,7 +4,7 @@
 #include "../base/command.h"
 #include "../catalog.h"
 #include "command_response.h"
-#include "../../queries/create_product_query.h"
+#include "../queries/create_product_query.h"
 #include <string>
 
 class CreateProductCommand : public Command {
