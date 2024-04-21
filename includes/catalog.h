@@ -4,7 +4,6 @@
 #include "product.h"
 #include <unordered_map>
 #include <vector>
-#include <iostream> ////// for display products, should be removed
 
 class Catalog {
 private:
@@ -19,7 +18,6 @@ public:
     int getTotalStock(int productId) const;
     void updateStock(int productId, int amount);
     bool productExists(int productId) const;
-    void displayProducts() const;
     void updateProductName(int productId, const std::string& newName);
     void updateProductPrice(int productId, const float price);
     void updateProductDescription(int productId, const std::string& desc);

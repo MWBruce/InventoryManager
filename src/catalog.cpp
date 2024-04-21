@@ -35,18 +35,6 @@ void Catalog::updateStock(int productId, int amount) {
     }
 }
 
-void Catalog::displayProducts() const {
-    std::cout << "Displaying products...\n";
-    for (const auto& pair : products) {
-        if (pair.second == nullptr) {
-            std::cout << "Warning: Null pointer detected for product ID " << pair.first << std::endl;
-            continue;
-        }
-        const Product* p = pair.second;
-        std::cout << "Product ID: " << p->id << " - Name: " << p->getName() << std::endl;
-    }
-}
-
 void Catalog::updateProductName(int productId, const std::string& newName) {
     auto it = products.find(productId);
     if (it != products.end() && it->second != nullptr) {
