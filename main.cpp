@@ -3,6 +3,8 @@
 
 #include "includes/catalog.h"
 #include "includes/commands/command_types.h"
+#include "includes/commands/command_query.h"
+#include "includes/commands/command_query_factory.h"
 #include "includes/location.h"
 
 int main() {

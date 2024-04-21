@@ -24,6 +24,8 @@ src/commands/concrete/get_product_supplier_id_command.cpp \
 src/commands/command_factory.cpp \
 src/commands/utils/invoker.cpp \
 src/commands/command_response.cpp \
+src/commands/command_query_factory.cpp \
+src/commands/command_query.cpp \
 main.cpp"
 
 g++ -o $EXECUTABLE $SOURCES -Isrc -Iincludes -Isrc/commands -Iincludes/commands
