@@ -11,7 +11,8 @@ enum CommandType {
     GetProductName,
     GetProductPrice,
     GetProductDescription,
-    GetProductSupplierId
+    GetProductSupplierId,
+
 };
 
 #endif

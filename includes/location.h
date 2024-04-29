@@ -2,6 +2,7 @@
 #define LOCATION_H
 
 #include "inventory.h"
+#include "cart/cart.h"
 #include "commands/utils/invoker.h"
 #include "commands/command_factory.h"
 #include "commands/command_types.h"
@@ -15,6 +16,7 @@ protected:
     std::unique_ptr<Inventory> inventory;
     Invoker invoker;
     Catalog* catalog;
+    Cart cart;
 
 public:
     Location(Catalog* catalog);
